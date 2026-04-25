@@ -1,4 +1,5 @@
 import os 
+import random
 
 """
 Sistema StudyCam - Gerenciamento de Notas
@@ -20,10 +21,15 @@ def exibir_nome_do_programa():
     """
     Exibe o nome do sistema no terminal.
     """
-    print("=" * 40)
-    print("      STUDYCAM - Gerenciador de Notas")
-    print("=" * 40)
-
+    print("=" * 72)
+    print("""
+░██████╗████████╗██╗░░░██╗██████╗░██╗░░░██╗░█████╗░░█████╗░███╗░░░███╗
+██╔════╝╚══██╔══╝██║░░░██║██╔══██╗╚██╗░██╔╝██╔══██╗██╔══██╗████╗░████║
+╚█████╗░░░░██║░░░██║░░░██║██║░░██║░╚████╔╝░██║░░╚═╝███████║██╔████╔██║
+░╚═══██╗░░░██║░░░██║░░░██║██║░░██║░░╚██╔╝░░██║░░██╗██╔══██║██║╚██╔╝██║
+██████╔╝░░░██║░░░╚██████╔╝██████╔╝░░░██║░░░╚█████╔╝██║░░██║██║░╚═╝░██║
+╚═════╝░░░░╚═╝░░░░╚═════╝░╚═════╝░░░░╚═╝░░░░╚════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝""")
+    print("=" * 72)
 
 def exibir_opcoes():
     """
@@ -69,7 +75,7 @@ def exibir_subtitulo(texto):
     - Executa comando do sistema para limpar tela
     - Exibe o texto como um subtítulo
     """
-    os.system('clear')
+    limpar_terminal()
     print("=" * 40)
     print(texto)
     print("=" * 40)
@@ -133,8 +139,7 @@ def capturar_nova_nota():
     - Atribui tags baseado na matéria
     - Adiciona à lista de notas
     """
-    import random
-    
+ 
     exibir_subtitulo('Captura de Nova Nota')
     
     # Entrada do título
@@ -351,6 +356,13 @@ def escolher_opcao():
         input('Digite uma tecla para voltar ao menu')
         main()
 
+def limpar_terminal():
+    """
+    Função que limpa o terminal.
+    Utiliza o "cls" se for Windows e "Clear" se for Mac/Linux.
+    """
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 
 def main():
     """
@@ -361,7 +373,7 @@ def main():
     - Exibir o menu
     - Capturar a opção do usuário
     """
-    os.system('clear')
+    limpar_terminal()
     exibir_nome_do_programa()
     print()
     exibir_opcoes()
